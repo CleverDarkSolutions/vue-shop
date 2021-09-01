@@ -7,7 +7,8 @@ export default createStore({
       label: 'None',
       price: 0,
       img: 'default.jpg'
-    }
+    },
+    cart: [{}]
   },
   mutations: {
     setLastProduct (state, payload) {
@@ -15,11 +16,17 @@ export default createStore({
       state.lastProduct.label = payload.label
       state.lastProduct.price = payload.price
       state.lastProduct.img = payload.img
+    },
+    addToCart (state, product) {
+      state.cart.push(product)
     }
   },
   getters: {
     returnLastProduct: state => {
       return state.lastProduct
+    },
+    returnCart: state => {
+      return state.cart
     }
   },
   actions: {},
