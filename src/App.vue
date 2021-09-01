@@ -1,10 +1,43 @@
 <template>
+<div>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <div>
+    <nav class="navbar navbar-light bg-light">
+
+    <router-link to='/'>
+      <a class="navbar-brand">Home</a>
+    </router-link>
+
+    <router-link to='/merch'>
+      <a class="navbar-brand">Merch</a>
+    </router-link>
+
+    <router-link to='/cart'>
+      <a class="navbar-brand">Cart</a>
+    </router-link>
+
+    <router-link to='/contact'>
+      <a class="navbar-brand">Contact</a>
+    </router-link>
+
+    <router-link to='/legal'>
+      <a class="navbar-brand">Legal</a>
+    </router-link>
+    </nav>
+  </div>
   </div>
   <router-view/>
+</div>
 </template>
+
+<script>
+import { defineComponent } from 'vue'
+
+export default defineComponent({
+  components: {
+  }
+})
+</script>
 
 <style>
 #app {
