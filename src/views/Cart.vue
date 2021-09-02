@@ -10,8 +10,6 @@
 import { defineComponent } from 'vue'
 import store from '../store/index.ts'
 
-const cart = store.getters.returnCart
-
 export default defineComponent({
   data () {
     return {
@@ -19,7 +17,12 @@ export default defineComponent({
     }
   },
   created () {
-    this.items = cart
+    this.items = store.getters.returnCart
+  },
+  beforeUpdate () {
+    this.items = store.getters.returnCart
+    console.log('Update cart')
+    console.log(this.items)
   }
 })
 </script>

@@ -62,7 +62,7 @@ export default createStore({
       img: 'default.jpg',
       misc: ['Test']
     },
-    cart: [{}] // wtf
+    cart: [{ id: 0 }] // wtf
   },
   mutations: {
     setLastProduct (state, payload) {
@@ -73,7 +73,7 @@ export default createStore({
       state.lastProduct.misc = payload.misc
     },
     addToCart (state, product) {
-      state.cart.push(product)
+      state.cart = [...state.cart, product]
     }
   },
   getters: {
