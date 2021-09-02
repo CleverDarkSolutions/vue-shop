@@ -31,17 +31,18 @@ export default defineComponent({
   data () {
     return {
       product: Object,
-      misc: Array
+      misc: Array,
+      id: Number
     }
   },
   created () {
     this.product = item
     this.misc = item.misc
-    console.log(this.misc)
+    this.id = item.id
   },
   methods: {
     addToCart () {
-      store.commit('addToCart', item)
+      store.commit('addToCart', this.id) // TO BE CHANGED
       console.log(store.getters.returnCart)
     }
   }

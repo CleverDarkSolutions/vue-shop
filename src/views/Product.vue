@@ -29,7 +29,6 @@ export default defineComponent({
   },
   methods: {
     showProduct () {
-      this.$emit('show-product', this.id)
       store.commit('setLastProduct', this)
       console.log(store.getters.returnLastProduct)
     }

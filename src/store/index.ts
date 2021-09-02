@@ -35,7 +35,7 @@ export default createStore({
       },
       {
         id: 4,
-        label: 'Karta graficzna Nvidia',
+        label: 'Nvidia GTX 1030',
         price: 1500,
         img: 'https://a.allegroimg.com/original/11e1b9/99395ef24facbfa60dd0a559645e/Karta-graficzna-nvidia-GTX1050Ti-4GB-DDR5-Dual-Fan',
         misc: [
@@ -62,7 +62,7 @@ export default createStore({
       img: 'default.jpg',
       misc: ['Test']
     },
-    cart: [{ id: 0 }] // wtf
+    cart: [0] // wtf
   },
   mutations: {
     setLastProduct (state, payload) {
@@ -72,8 +72,10 @@ export default createStore({
       state.lastProduct.img = payload.img
       state.lastProduct.misc = payload.misc
     },
-    addToCart (state, product) {
-      state.cart = [...state.cart, product]
+    addToCart (state, index) {
+      state.cart.push(index)
+      console.log('Addtocart store')
+      console.log(index)
     }
   },
   getters: {
