@@ -4,6 +4,9 @@
       <span>
         <p>ID produktu - {{product.id}}</p>
         <p>{{product.label}}</p>
+        <div v-for="key in misc" :key='key'>
+          <p> {{key}} </p>
+        </div>
       </span>
       <Button class='btn btn-success' @button-clicked='addToCart()' label='Dodaj do koszyka'></Button>
       <h3>{{product.price}} zł</h3>
@@ -67,6 +70,7 @@ h3 {
   font-size: 6vw;
   border: 5px solid antiquewhite;
   padding: 1vw;
+  background: #FFFACD;
 }
 
 .productPreview {
