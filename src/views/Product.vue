@@ -4,7 +4,7 @@
         <h4> {{ label }} </h4>
         <h2> {{ price }} zl</h2>
         <router-link to='/ProductPreview'>
-        <Button @button-clicked="showProduct()" label='show'>/</Button>
+        <Button class='btn btn-primary' @button-clicked="showProduct()" label='show'>/</Button>
         </router-link>
     </div>
 </template>
@@ -40,8 +40,8 @@ export default defineComponent({
 
 .product{
     color: dimgrey;
-    background: #FFFAF0;
-    border: 2px solid antiquewhite;
+    background: white;
+    border: 2px solid lightcyan;
     border-radius: 10px;
     width: 15em;
     height: 20em;
@@ -53,14 +53,6 @@ img {
     width: 10em;
     height: 10em;
     margin-top: 1em;
-}
-
-button {
-  border: 2px solid antiquewhite;
-  background: #FFFACD;
-  width: 5em;
-  height: 2em;
-  color: dimgrey;
 }
 
 </style>

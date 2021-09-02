@@ -39,20 +39,24 @@ export default defineComponent({
   },
   methods: {
     onSubmit (e) {
-      e.preventDefault()
-      const newProduct = {
-        id: Math.floor(Math.random() * 1000),
-        label: this.name,
-        price: this.price,
-        img: this.image,
-        misc: [this.info1, this.info2]
+      if (this.name !== '' && this.price > 0 && this.image !== '') {
+        e.preventDefault()
+        const newProduct = {
+          id: Math.floor(Math.random() * 1000),
+          label: this.name,
+          price: this.price,
+          img: this.image,
+          misc: [this.info1, this.info2]
+        }
+        store.commit('addNewProduct', newProduct)
+        this.name = ''
+        this.price = 0
+        this.image = ''
+        this.info1 = ''
+        this.info2 = ''
+      } else {
+        alert('Fill in properly')
       }
-      store.commit('addNewProduct', newProduct)
-      this.name = ''
-      this.price = 0
-      this.image = ''
-      this.info1 = ''
-      this.info2 = ''
     }
   }
 })
@@ -62,5 +66,14 @@ export default defineComponent({
 form {
     width: 50%;
     margin: auto;
+}
+
+div {
+    padding: 30px;
+}
+
+input {
+    margin-right: 15px;
+    margin-left: 15px;
 }
 </style>

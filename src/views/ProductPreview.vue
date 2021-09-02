@@ -2,7 +2,7 @@
     <div class='productPreview'>
         <img :src='product.img'>
       <span>
-        <p>ID produktu : {{product.id}}</p>
+        <p>Product ID : {{product.id}}</p>
         <p>{{product.label}}</p>
         <div v-for="key in misc" :key='key'>
           <p> {{key}} </p>
@@ -10,7 +10,7 @@
       </span>
       <div>
       <router-link to='/merch'>
-      <Button class='btn btn-success' @button-clicked='addToCart()' label='Add to cart'></Button>
+      <Button class='btn btn-primary' @button-clicked='addToCart()' label='Add to cart'></Button>
       </router-link>
       <h3>{{product.price}} zł</h3>
       </div>
@@ -42,7 +42,7 @@ export default defineComponent({
   },
   methods: {
     addToCart () {
-      store.commit('addToCart', this.id) // TO BE CHANGED
+      store.commit('addToCart', this.id)
       console.log(store.getters.returnCart)
     }
   }
@@ -57,7 +57,7 @@ img {
   height: 50vh;
   float: left;
   margin: 2em;
-  border: 2px solid antiquewhite;
+  border: 2px solid lightcyan;
   border-radius: 1em;
 }
 
@@ -73,15 +73,15 @@ h3 {
   top: 25vh;
   left: 72%;
   font-size: 6vw;
-  border: 5px solid antiquewhite;
+  border: 5px solid lightcyan;
   padding: 1vw;
-  background: #FFFACD;
+  background: white;
 }
 
 .productPreview {
   font-size: 2em;
-  border: 2px solid antiquewhite;
-  background: #FFFAF0;
+  border: 2px solid lightcyan;
+  background: white;
   float: left;
   width: 100%;
 }
