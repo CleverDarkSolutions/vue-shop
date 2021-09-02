@@ -2,14 +2,18 @@
     <div class='productPreview'>
         <img :src='product.img'>
       <span>
-        <p>ID produktu - {{product.id}}</p>
+        <p>ID produktu : {{product.id}}</p>
         <p>{{product.label}}</p>
         <div v-for="key in misc" :key='key'>
           <p> {{key}} </p>
         </div>
       </span>
+      <div>
+      <router-link to='/merch'>
       <Button class='btn btn-success' @button-clicked='addToCart()' label='Dodaj do koszyka'></Button>
+      </router-link>
       <h3>{{product.price}} zł</h3>
+      </div>
     </div>
 </template>
 
@@ -83,7 +87,7 @@ h3 {
 
 .btn {
   position: absolute;
-  left: 70%;
+  left: 74%;
   top: 50vh;
   font-size: 2vw;
 }

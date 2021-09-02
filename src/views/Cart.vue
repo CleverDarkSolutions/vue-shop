@@ -1,3 +1,25 @@
 <template>
-    <div>Koszyk</div>
+    <div>
+      <div v-for="key in items" :key="key">
+          <h1>{{key.id}}</h1>
+      </div>
+    </div>
 </template>
+
+<script>
+import { defineComponent } from 'vue'
+import store from '../store/index.ts'
+
+const cart = store.getters.returnCart
+
+export default defineComponent({
+  data () {
+    return {
+      items: Array
+    }
+  },
+  created () {
+    this.items = cart
+  }
+})
+</script>
