@@ -1,20 +1,39 @@
 <template>
-    <div>
-        <Product @show-product="displayProduct()" id=1 img='https://i5.walmartimages.com/asr/e02e2d52-5ade-4236-b24a-e9c88faadf46.8d82c070488397fe72d864004a9bac8b.png' label="Koks sluchawki" price=200></Product>
+  <div>
+    <div v-for="product in products" :key="product">
+      <Product
+        :id="product.id"
+        :label="product.label"
+        :price="product.price"
+        :img="product.img"
+        :misc="product.misc"
+      ></Product>
     </div>
+  </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
 import Product from './Product.vue'
+import store from '../store/index.ts'
+
+const products = store.getters.returnProducts
 
 export default defineComponent({
   components: {
     Product
   },
+  data () {
+    return {
+      products: [{}]
+    }
+  },
+  created () {
+    this.products = products
+  },
   methods: {
     displayProduct () {
-      console.log('chuuuj')
+      console.log('chuuj')
     }
   }
 })

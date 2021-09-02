@@ -1,9 +1,12 @@
 <template>
-    <div>
-        {{product.id}}
-        {{product.label}}
+    <div class='productPreview'>
         <img :src='product.img'>
-        <Button @button-clicked='addToCart()' label='Dodaj do koszyka'></Button>
+      <span>
+        <p>ID produktu - {{product.id}}</p>
+        <p>{{product.label}}</p>
+      </span>
+      <Button class='btn btn-success' @button-clicked='addToCart()' label='Dodaj do koszyka'></Button>
+      <h3>{{product.price}} zł</h3>
     </div>
 </template>
 
@@ -13,7 +16,6 @@ import store from '../store/index.ts'
 import Button from '../components/Button.vue'
 
 const item = store.getters.returnLastProduct
-console.log(item)
 
 export default defineComponent({
   components: {
@@ -21,11 +23,14 @@ export default defineComponent({
   },
   data () {
     return {
-      product: Object
+      product: Object,
+      misc: Array
     }
   },
   created () {
     this.product = item
+    this.misc = item.misc
+    console.log(this.misc)
   },
   methods: {
     addToCart () {
@@ -36,3 +41,47 @@ export default defineComponent({
 
 })
 </script>
+
+<style scoped>
+
+img {
+  width: 30vw;
+  height: 50vh;
+  float: left;
+  margin: 2em;
+  border: 2px solid antiquewhite;
+  border-radius: 1em;
+}
+
+span {
+  position: absolute;
+  top: 25vh;
+  left: 40vw;
+  font-size: 2vw;
+}
+
+h3 {
+  position: absolute;
+  top: 25vh;
+  left: 72%;
+  font-size: 6vw;
+  border: 5px solid antiquewhite;
+  padding: 1vw;
+}
+
+.productPreview {
+  font-size: 2em;
+  border: 2px solid antiquewhite;
+  background: #FFFAF0;
+  float: left;
+  width: 100%;
+}
+
+.btn {
+  position: absolute;
+  left: 70%;
+  top: 50vh;
+  font-size: 2vw;
+}
+
+</style>

@@ -21,7 +21,8 @@ export default defineComponent({
     id: Number,
     label: String,
     price: Number,
-    img: String
+    img: String,
+    misc: Array
   },
   components: {
     Button
@@ -30,6 +31,7 @@ export default defineComponent({
     showProduct () {
       this.$emit('show-product', this.id)
       store.commit('setLastProduct', this)
+      console.log(store.getters.returnLastProduct)
     }
   }
 })
@@ -38,17 +40,28 @@ export default defineComponent({
 <style scoped>
 
 .product{
-    background: silver;
-    border: 2px solid black;
+    color: dimgrey;
+    background: #FFFAF0;
+    border: 2px solid antiquewhite;
     border-radius: 10px;
     width: 15em;
     height: 20em;
     margin-left: 5em;
+    margin-top: 2em;
+    float: left;
 }
 img {
     width: 10em;
     height: 10em;
     margin-top: 1em;
+}
+
+button {
+  border: 2px solid antiquewhite;
+  background: #FFFACD;
+  width: 5em;
+  height: 2em;
+  color: dimgrey;
 }
 
 </style>
