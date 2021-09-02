@@ -20,8 +20,8 @@
       <a class="navbar-brand">Contact</a>
     </router-link>
 
-    <router-link to='/legal'>
-      <a class="navbar-brand">Legal</a>
+    <router-link to='/AddProduct'>
+      <a class="navbar-brand">Add product</a>
     </router-link>
     </nav>
   </div>

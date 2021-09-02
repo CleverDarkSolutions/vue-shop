@@ -10,7 +10,7 @@
       </span>
       <div>
       <router-link to='/merch'>
-      <Button class='btn btn-success' @button-clicked='addToCart()' label='Dodaj do koszyka'></Button>
+      <Button class='btn btn-success' @button-clicked='addToCart()' label='Add to cart'></Button>
       </router-link>
       <h3>{{product.price}} zł</h3>
       </div>

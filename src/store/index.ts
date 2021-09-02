@@ -5,7 +5,7 @@ export default createStore({
     products: [
       {
         id: 1,
-        label: 'Koks sluchawki',
+        label: 'Headphones',
         price: 200,
         img: 'https://i5.walmartimages.com/asr/e02e2d52-5ade-4236-b24a-e9c88faadf46.8d82c070488397fe72d864004a9bac8b.png',
         misc: [
@@ -15,7 +15,7 @@ export default createStore({
       },
       {
         id: 2,
-        label: 'Mikrofon tracer',
+        label: 'Tracer microphone',
         price: 70,
         img: 'https://image.ceneostatic.pl/data/products/37901263/i-tracer-mikrofon-tracet-screamer.jpg',
         misc: [
@@ -25,7 +25,7 @@ export default createStore({
       },
       {
         id: 3,
-        label: 'Dysk Adata',
+        label: 'ADATA Disk',
         price: 400,
         img: 'https://allegro.stati.pl/AllegroIMG/PRODUCENCI/A-DATA/AHV620S-1TU3-CBK/a2.jpg',
         misc: [
@@ -45,7 +45,7 @@ export default createStore({
       },
       {
         id: 5,
-        label: 'Procesor Intel',
+        label: 'Intel I9',
         price: 3000,
         img: 'https://4.allegroimg.com/s512/11e3bc/5137651f4babbba8a21e6f4b8184/PROCESOR-INTEL-CORE-i9-7920X-FCLGA2066-OEM',
         misc: [
@@ -76,6 +76,16 @@ export default createStore({
       state.cart.push(index)
       console.log('Addtocart store')
       console.log(index)
+    },
+    removeFromCart (state, index) {
+      state.cart.splice(index, 1)
+      console.log(state)
+    },
+    clearCart (state) {
+      state.cart = []
+    },
+    addNewProduct (state, payload) {
+      state.products.push(payload)
     }
   },
   getters: {

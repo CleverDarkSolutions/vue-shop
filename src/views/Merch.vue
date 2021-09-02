@@ -30,11 +30,6 @@ export default defineComponent({
   },
   created () {
     this.products = products
-  },
-  methods: {
-    displayProduct () {
-      console.log('chuuj')
-    }
   }
 })
 </script>
